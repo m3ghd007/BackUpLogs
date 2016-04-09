@@ -1,12 +1,24 @@
-<div>
-	<table name = 'yet2downloadtable'>
-		<th>
-			<td>
-				File Name
-			</td>
-			<td>
-				File Size
-			</td>
-		</th>
-	</table>
+<div id="yetToDownloadDiv" ng-app="yet2Download" ng-controller="downloadThem">
+	{% load static %}
+	{% verbatim %}
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>File Name</th>
+					<th>File Size</th>
+					<th>Downloaded</th>
+					</tr>
+			</thead>
+			<tbody>
+			<tr class="success" ng-repeat='file in fileList'>
+			<td ng-repeat='attr in file'>{{ attr }}</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	{% endverbatim %}
 </div>
+
+<script type="text/javascript" src={% static "js/yet_to_download.js" %}></script>
